@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f0f0e3;
+}
+
+.container {
+    width: 1018px;
+    height: 100%;
+    border: 1px solid #999;
+    margin: 16px auto;
+    background-color: #f0f0e3;
+    padding: 6px;
+    font-size: 0;
+    overflow: hidden;
+}
+
+#tap {
+    width: 110px;
+    height: 690px;
+    float: left;
+    font-size: 16px;
+}
+
+#content {
+    width: 908px;
+    height: 690px;
+    display: inline-block;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+.logo {
+    width: 100%;
+    height: 92px;
+}
+
+.nav {
+    width: 100%;
+    height: 510px;
+    margin: 0 auto;
+}
+
+.nav ul {
+    list-style-type: none;
+}
+
+.nav ul li {
+    text-align: center;
+    width: 100%;
+    height: 100px;
+    background-color: #ffffff;
+    line-height: 100px;
+    border-top: 2px #f8f8f8 solid;
+}
+
+.nav ul li a {
+    color: #302f38;
+    display: block;
+    height: 100%;
+    text-decoration: none;
+}
+
+.nav ul li a:hover {
+    color: white;
+    background-color: #de3133;
+}
+
+.set {
+    text-align: center;
+    width: 100%;
+    height: 88px;
+    line-height: 110px;
+    background-color: #302f38;
+    color: white;
+    font-size: 0;
+}
+
+.icon-set {
+    display: block;
+    width: 35px;
+    height: 15px;
+    margin: 0 auto;
+}
+
+.set:hover {
+    background-color: black;
+    color: #999;
+    cursor: pointer;
+}
+
+label {
+    font-size: 12px;
+}
+
+#header-wrapper {
+    width: 100%;
+    height: 300px;
+    background-color: #999;
+    background-image: url("../images/header.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+header {
+    width: 100%;
+    height: 140px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#header-wrapper span {
+    font-size: 22px;
+    color: white;
+    font-family: "宋体";
+    padding: 17px;
+    display: inline-block;
+}
+
+input[type="text"] {
+    float: right;
+    background: rgba(233, 233, 233, 0.4);
+    border: 1px solid #999;
+    border-radius: 20px;
+    margin-top: 10px;
+    width: 100px;
+    height: 30px;
+    margin-right: 35px;
+    font-size: 14px;
+    outline-style: none;
+    background-image: url("../images/wxb搜索推广.png");
+    background-repeat: no-repeat;
+    background-position: 100px center;
+    padding-right: 15px;
+    padding-left: 10px;
+}
+
+.first-show {
+    width: 100%;
+    height: 160px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.first-show label {
+    font-size: 12px;
+    color: white;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.first-show h1 {
+    padding-left: 20px;
+    color: white;
+    padding-top: 20px;
+}
+
+.first-show .ls {
+    padding-left: 20px !important;
+}
+
+.first-show .rs {
+    float: right;
+    font-size: 12px !important;
+}
+
+.content-wrapper {
+    height: 390px;
+}
+
+.part1 {
+    width: 100%;
+    height: 50%;
+    font-size: 0;
+}
+.part1 div{
+    font-size: 16px;
+    display: inline-block;
+    width: 20%;
+    height: 100%;
+    background-color: #de3133;
+}
+
+.part2 {
+    font-size: 0;
+    width: 100%;
+    height: 50%;
+    background-color: blueviolet;
+}
+.part2 div{
+    font-size: 16px;
+    width: 50%;
+    height: 100%;
+    display: inline-block;
+    background-color: chartreuse;
+}
+.content-wrapper img{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+}
