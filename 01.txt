@@ -1,3 +1,4 @@
 UserB
 userb add
 UserA add
+git fetch origin 可以解决多人处理同个文件的冲突
