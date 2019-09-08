@@ -2,3 +2,5 @@ UserB
 userb add
 UserA add
 git stash 能将修改缓存起来，从而避免多人操作冲突
+git stash pop 就能将修改的内容取出合并了
+
