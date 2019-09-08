@@ -1,8 +1,4 @@
 UserB
 userb add
 UserA add
-<<<<<<< Updated upstream
-git fetch origin 可以解决多人处理同个文件的冲突
-=======
-那就试试咯
->>>>>>> Stashed changes
+git stash 能将修改缓存起来，从而避免多人操作冲突
