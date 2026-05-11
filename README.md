@@ -52,6 +52,31 @@ git stash  → 将修改缓存起来，避免多人操作冲突
 git stash pop → 将修改的内容取出合并
 ```
 
+## 🐳 Docker 部署
+
+### 方式一：docker-compose（推荐）
+
+```bash
+docker compose up -d
+# 访问 http://localhost:8080
+```
+
+### 方式二：纯 Docker
+
+```bash
+docker build -t div-css-portfolio .
+docker run -d -p 8080:80 --name portfolio div-css-portfolio
+# 访问 http://localhost:8080
+```
+
+### 停止
+
+```bash
+docker compose down
+# 或
+docker stop portfolio && docker rm portfolio
+```
+
 ---
 
-**原项目** — [GitHub: FengHanC/div-css](https://github.com/FengHanC/div-css)
+**GitHub** — [FengHanC/div-css](https://github.com/FengHanC/div-css) | **作者** — [FengHanC](https://github.com/FengHanC)
