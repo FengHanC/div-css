@@ -1,73 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>new</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="布局练习项目 - 现代响应式重构版" />
+  <meta name="theme-color" content="#1a1a2e" />
+  <title>首页 — Modern Layout</title>
+  <link rel="stylesheet" href="/src/style.css" />
 </head>
 <body>
-    <div class="container">
-        <div id="tap">
-            <div class="logo"><img src="./images/logo.jpg" alt="logo"></div>
-            <div class="nav">
-                <ul>
-                    <li><a href="#">首页</a></li>
-                    <li><a href="#">资讯</a></li>
-                    <li><a href="#">活动</a></li>
-                    <li><a href="#">关于</a></li>
-                    <li><a href="#">联系</a></li>
-                </ul>
-            </div>
-            <div class="set">
-                <span class="icon-set"><img src="./images/set.png"></span>
-                <label>设置</label>
-            </div>
-        </div>
-        <div id="content">
-            <div id="header-wrapper">
-                <header>
-                    <span>首页</span>
-                    <input type="text" placeholder="搜索">
-                </header>
-                <div class="first-show">
-                    <label>123</label>
-                    <h1>Better call saul</h1>
-                    <span class="ls">hero</span>
-                    <span class="rs">一切皆有可能</span>
-                </div>
-            </div>
-            <div class="content-wrapper">
-                <section class="part1">
-                    <div>
-                        <img src="./images/Ch_01.jpg">
-                    </div>
-                    <div>
-                        <img src="./images/Ch_02.jpg">
-                    </div>
-                    <div>
-                        <img src="./images/Ch_03.jpg">
-                    </div>
-                    <div>
-                        <img src="./images/Ch_04.jpg">
-                    </div>
-                    <div>
-                        <img src="./images/Ch_05.jpg">
-                    </div>
-                </section>
-                <section class="part2">
-                    <div>
-                        <img src="./images/Ch_06.jpg">
-                    </div>
-                    <div>
-                        <img src="./images/Ch_07.jpg">
-                    </div>
-                </section>
-            </div>
-        </div>
+  <!-- 侧边导航 -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img
+        src="/images/logo.jpg"
+        alt="网站 Logo"
+        class="logo"
+        loading="lazy"
+      />
     </div>
-    <script src="./js/jquery.min.js"></script>
-    <script src="./js/main.js"></script>
+
+    <nav class="nav" aria-label="主导航">
+      <ul class="nav-list">
+        <li><a href="#home" class="nav-link active" data-section="home">首页</a></li>
+        <li><a href="#news" class="nav-link" data-section="news">资讯</a></li>
+        <li><a href="#events" class="nav-link" data-section="events">活动</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">关于</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">联系</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="settings-btn" aria-label="设置">
+        <img src="/images/set.png" alt="设置图标" class="icon-set" />
+        <span>设置</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- 遮罩层（移动端） -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- 主内容区 -->
+  <main class="main-content" id="mainContent">
+    <!-- 顶部栏 -->
+    <header class="top-bar">
+      <button class="hamburger" id="hamburger" aria-label="切换菜单">
+        <span></span><span></span><span></span>
+      </button>
+      <span class="page-title">首页</span>
+      <div class="search-wrapper">
+        <input type="text" class="search-input" placeholder="搜索…" aria-label="搜索" />
+      </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="hero" id="home">
+      <div class="hero-overlay">
+        <span class="hero-badge">hero</span>
+        <h1 class="hero-title">Better Call Saul</h1>
+        <p class="hero-subtitle">一切皆有可能</p>
+      </div>
+    </section>
+
+    <!-- 图片展示区 -->
+    <section class="gallery-section" id="news">
+      <h2 class="section-title">图片展示</h2>
+      <div class="gallery-grid">
+        <figure class="gallery-item">
+          <img src="/images/Ch_01.jpg" alt="展示图片 01" loading="lazy" />
+        </figure>
+        <figure class="gallery-item">
+          <img src="/images/Ch_02.jpg" alt="展示图片 02" loading="lazy" />
+        </figure>
+        <figure class="gallery-item">
+          <img src="/images/Ch_03.jpg" alt="展示图片 03" loading="lazy" />
+        </figure>
+        <figure class="gallery-item">
+          <img src="/images/Ch_04.jpg" alt="展示图片 04" loading="lazy" />
+        </figure>
+        <figure class="gallery-item">
+          <img src="/images/Ch_05.jpg" alt="展示图片 05" loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- 内容区 -->
+    <section class="content-section" id="events">
+      <h2 class="section-title">精彩内容</h2>
+      <div class="content-grid">
+        <article class="content-card">
+          <img src="/images/Ch_06.jpg" alt="内容图片 06" loading="lazy" />
+          <div class="card-body">
+            <h3>内容区块 A</h3>
+            <p>这里是左侧内容区域的描述文字，展示现代化布局下的卡片式设计。</p>
+          </div>
+        </article>
+        <article class="content-card">
+          <img src="/images/Ch_07.jpg" alt="内容图片 07" loading="lazy" />
+          <div class="card-body">
+            <h3>内容区块 B</h3>
+            <p>右侧内容区域，采用 flex 弹性布局，自适应高度保持一致。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 关于区 -->
+    <section class="about-section" id="about">
+      <h2 class="section-title">关于本项目</h2>
+      <div class="about-card">
+        <p>
+          本项目是 <strong>div-css</strong> 布局练习的现代化重构版本。
+          从传统的 float 固定宽度布局，升级为 <strong>CSS Grid + Flexbox</strong>
+          响应式布局，并引入 Vite 构建工具。
+        </p>
+        <div class="git-notes">
+          <h4>📝 Git 学习笔记</h4>
+          <code>git stash</code> — 能将修改缓存起来，避免多人操作冲突<br />
+          <code>git stash pop</code> — 将修改的内容取出合并
+        </div>
+      </div>
+    </section>
+
+    <!-- 联系区 -->
+    <section class="contact-section" id="contact">
+      <h2 class="section-title">联系我</h2>
+      <div class="contact-card">
+        <p>如果你对项目感兴趣，欢迎通过以下方式联系：</p>
+        <div class="contact-links">
+          <a href="https://github.com/FengHanC" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:example@email.com">Email</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>&copy; 2018 — 2026 布局练习项目 | 现代重构版</p>
+    </footer>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>

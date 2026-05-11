@@ -1,0 +1,15 @@
+{
+  "name": "div-css",
+  "private": true,
+  "version": "2.0.0",
+  "description": "布局练习项目 - 现代重构版",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.4.2"
+  }
+}
