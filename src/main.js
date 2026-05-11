@@ -1,6 +1,6 @@
 /**
- * div-css — Main Application
- * 现代 JavaScript 模块：导航交互、搜索、移动端菜单
+ * div-css — Portfolio v2
+ * 交互：导航、搜索、暗色模式、动画
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.nav-link');
   const pageTitle = document.querySelector('.page-title');
   const searchInput = document.querySelector('.search-input');
-  const settingsBtn = document.querySelector('.settings-btn');
+  const themeToggle = document.getElementById('themeToggle');
 
   /* ====== 移动端菜单切换 ====== */
   function toggleSidebar() {
@@ -31,18 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
   hamburger.addEventListener('click', toggleSidebar);
   overlay.addEventListener('click', closeSidebar);
 
-  // 导航切换后自动关菜单（移动端）
   navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      closeSidebar();
-    });
+    link.addEventListener('click', closeSidebar);
   });
 
-  /* ====== 导航高亮 & 页面标题切换 ====== */
+  /* ====== 导航高亮 ====== */
   const sectionNames = {
     home: '首页',
-    news: '资讯',
-    events: '活动',
+    projects: '项目',
+    featured: '精选',
     about: '关于',
     contact: '联系',
   };
@@ -54,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     pageTitle.textContent = sectionNames[sectionId] || '首页';
   }
 
-  // Intersection Observer: 滚动时高亮当前区域
+  // Intersection Observer
   const sections = document.querySelectorAll('section[id]');
   const observerOptions = {
     rootMargin: '-20% 0px -60% 0px',
@@ -71,25 +68,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sections.forEach(section => sectionObserver.observe(section));
 
-  /* ====== 搜索功能 ====== */
+  /* ====== 搜索过滤项目 ====== */
   searchInput.addEventListener('input', (e) => {
     const query = e.target.value.trim().toLowerCase();
-    if (!query) {
-      // 清空搜索时恢复所有内容
-      document.querySelectorAll('.gallery-item, .content-card').forEach(el => {
-        el.style.opacity = '1';
-        el.style.filter = 'none';
-      });
-      return;
-    }
+    const cards = document.querySelectorAll('.project-card');
 
-    // 简单过滤：匹配标题和描述的文案
-    const allCards = document.querySelectorAll('.content-card, .gallery-item');
-    allCards.forEach(card => {
+    cards.forEach(card => {
+      if (!query) {
+        card.style.opacity = '1';
+        card.style.transform = 'scale(1)';
+        card.style.display = '';
+        return;
+      }
+
       const text = card.textContent.toLowerCase();
-      const match = text.includes(query);
-      card.style.opacity = match ? '1' : '0.2';
-      card.style.filter = match ? 'none' : 'grayscale(1)';
+      const tags = (card.dataset.tags || '').toLowerCase();
+      const match = text.includes(query) || tags.includes(query);
+
+      if (match) {
+        card.style.opacity = '1';
+        card.style.transform = 'scale(1)';
+        card.style.display = '';
+      } else {
+        card.style.opacity = '0.3';
+        card.style.transform = 'scale(0.95)';
+      }
     });
   });
 
@@ -102,21 +105,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /* ====== 设置按钮交互 ====== */
-  settingsBtn.addEventListener('click', () => {
-    settingsBtn.classList.toggle('active');
-    if (settingsBtn.classList.contains('active')) {
-      settingsBtn.style.background = 'var(--color-accent)';
-      settingsBtn.innerHTML = '<span>✓ 已设置</span>';
-      setTimeout(() => {
-        settingsBtn.classList.remove('active');
-        settingsBtn.innerHTML = `
-          <img src="/images/set.png" alt="设置图标" class="icon-set" />
-          <span>设置</span>
-        `;
-        settingsBtn.style.background = '';
-      }, 1500);
-    }
+  /* ====== 暗色模式切换 ====== */
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    themeToggle.querySelector('.theme-icon').textContent =
+      theme === 'dark' ? '☀️' : '🌙';
+    themeToggle.querySelector('span:last-child').textContent =
+      theme === 'dark' ? '亮色模式' : '暗色模式';
+  }
+
+  // 初始化主题
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+  setTheme(initialTheme);
+
+  themeToggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    setTheme(current === 'dark' ? 'light' : 'dark');
   });
 
   /* ====== 键盘快捷键 ====== */
@@ -132,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /* ====== 页面加载完成提示 ====== */
-  console.log('✅ div-css 现代重构版已加载');
+  /* ====== 初始化完成 ====== */
+  console.log('✅ Portfolio v2 loaded');
   console.log('💡 快捷键: Ctrl+K 搜索');
 });

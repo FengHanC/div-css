@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="布局练习项目 - 现代响应式重构版" />
+  <meta name="description" content="FengHanC 的个人作品集 — 全栈开发 / AI 应用探索" />
   <meta name="theme-color" content="#1a1a2e" />
-  <title>首页 — Modern Layout</title>
+  <title>FengHanC · 作品集</title>
   <link rel="stylesheet" href="/src/style.css" />
 </head>
 <body>
@@ -14,26 +14,28 @@
     <div class="sidebar-header">
       <img
         src="/images/logo.jpg"
-        alt="网站 Logo"
-        class="logo"
+        alt="FengHanC"
+        class="avatar"
         loading="lazy"
       />
+      <span class="sidebar-name">FengHanC</span>
+      <span class="sidebar-role">全栈开发 · AI 探索</span>
     </div>
 
     <nav class="nav" aria-label="主导航">
       <ul class="nav-list">
         <li><a href="#home" class="nav-link active" data-section="home">首页</a></li>
-        <li><a href="#news" class="nav-link" data-section="news">资讯</a></li>
-        <li><a href="#events" class="nav-link" data-section="events">活动</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">项目</a></li>
+        <li><a href="#featured" class="nav-link" data-section="featured">精选</a></li>
         <li><a href="#about" class="nav-link" data-section="about">关于</a></li>
         <li><a href="#contact" class="nav-link" data-section="contact">联系</a></li>
       </ul>
     </nav>
 
     <div class="sidebar-footer">
-      <button class="settings-btn" aria-label="设置">
-        <img src="/images/set.png" alt="设置图标" class="icon-set" />
-        <span>设置</span>
+      <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+        <span class="theme-icon">🌙</span>
+        <span>暗色模式</span>
       </button>
     </div>
   </aside>
@@ -50,94 +52,360 @@
       </button>
       <span class="page-title">首页</span>
       <div class="search-wrapper">
-        <input type="text" class="search-input" placeholder="搜索…" aria-label="搜索" />
+        <input type="text" class="search-input" placeholder="搜索项目…" aria-label="搜索项目" />
       </div>
     </header>
 
-    <!-- Banner -->
+    <!-- ====== Hero ====== -->
     <section class="hero" id="home">
       <div class="hero-overlay">
-        <span class="hero-badge">hero</span>
-        <h1 class="hero-title">Better Call Saul</h1>
-        <p class="hero-subtitle">一切皆有可能</p>
-      </div>
-    </section>
-
-    <!-- 图片展示区 -->
-    <section class="gallery-section" id="news">
-      <h2 class="section-title">图片展示</h2>
-      <div class="gallery-grid">
-        <figure class="gallery-item">
-          <img src="/images/Ch_01.jpg" alt="展示图片 01" loading="lazy" />
-        </figure>
-        <figure class="gallery-item">
-          <img src="/images/Ch_02.jpg" alt="展示图片 02" loading="lazy" />
-        </figure>
-        <figure class="gallery-item">
-          <img src="/images/Ch_03.jpg" alt="展示图片 03" loading="lazy" />
-        </figure>
-        <figure class="gallery-item">
-          <img src="/images/Ch_04.jpg" alt="展示图片 04" loading="lazy" />
-        </figure>
-        <figure class="gallery-item">
-          <img src="/images/Ch_05.jpg" alt="展示图片 05" loading="lazy" />
-        </figure>
-      </div>
-    </section>
-
-    <!-- 内容区 -->
-    <section class="content-section" id="events">
-      <h2 class="section-title">精彩内容</h2>
-      <div class="content-grid">
-        <article class="content-card">
-          <img src="/images/Ch_06.jpg" alt="内容图片 06" loading="lazy" />
-          <div class="card-body">
-            <h3>内容区块 A</h3>
-            <p>这里是左侧内容区域的描述文字，展示现代化布局下的卡片式设计。</p>
-          </div>
-        </article>
-        <article class="content-card">
-          <img src="/images/Ch_07.jpg" alt="内容图片 07" loading="lazy" />
-          <div class="card-body">
-            <h3>内容区块 B</h3>
-            <p>右侧内容区域，采用 flex 弹性布局，自适应高度保持一致。</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- 关于区 -->
-    <section class="about-section" id="about">
-      <h2 class="section-title">关于本项目</h2>
-      <div class="about-card">
-        <p>
-          本项目是 <strong>div-css</strong> 布局练习的现代化重构版本。
-          从传统的 float 固定宽度布局，升级为 <strong>CSS Grid + Flexbox</strong>
-          响应式布局，并引入 Vite 构建工具。
+        <span class="hero-badge">👋 你好，我是</span>
+        <h1 class="hero-title">FengHanC</h1>
+        <p class="hero-subtitle">全栈开发者 · AI 应用探索 · 开源爱好者</p>
+        <p class="hero-desc">
+          热衷于用代码解决问题，从 PHP 到 Vue 再到 Node.js，
+          一直在折腾、学习、分享的路上。
         </p>
-        <div class="git-notes">
-          <h4>📝 Git 学习笔记</h4>
-          <code>git stash</code> — 能将修改缓存起来，避免多人操作冲突<br />
-          <code>git stash pop</code> — 将修改的内容取出合并
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">开源项目</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">5</span>
+            <span class="stat-label">技术栈</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">8年</span>
+            <span class="stat-label">编码经验</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 联系区 -->
+    <!-- ====== 项目展示区 ====== -->
+    <section class="gallery-section" id="projects">
+      <h2 class="section-title">项目一览</h2>
+      <div class="project-grid">
+        <!-- order-demo -->
+        <article class="project-card" data-tags="php,api">
+          <div class="project-image">
+            <div class="project-placeholder php">
+              <span class="tech-icon">🐘</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag tag-php">PHP</span>
+              <span class="tag tag-api">API</span>
+              <span class="tag tag-hot">🔥 最新</span>
+            </div>
+            <h3>order-demo</h3>
+            <p>基于 ThinkPHP 8 的订单接口 Demo，重点演示接口<strong>幂等性</strong>处理方案。通过 request_id 防止重复下单，唯一索引兜底并发场景，保障数据一致性。</p>
+            <a href="https://github.com/FengHanC/order-demo" target="_blank" rel="noopener" class="project-link">查看详情 →</a>
+          </div>
+        </article>
+
+        <!-- AI-ImageStream -->
+        <article class="project-card" data-tags="vue,ai">
+          <div class="project-image">
+            <div class="project-placeholder vue">
+              <span class="tech-icon">🖼️</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag tag-vue">Vue</span>
+              <span class="tag tag-ai">AI</span>
+            </div>
+            <h3>AI-ImageStream</h3>
+            <p>Vue 构建的 AI 图片流应用。探索 AI 生成图片的前端展示与交互方案，打造流畅的图片浏览体验。</p>
+            <a href="https://github.com/FengHanC/AI-ImageStream" target="_blank" rel="noopener" class="project-link">查看详情 →</a>
+          </div>
+        </article>
+
+        <!-- AISerial -->
+        <article class="project-card" data-tags="vue,ai,iot">
+          <div class="project-image">
+            <div class="project-placeholder vue">
+              <span class="tech-icon">🔌</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag tag-vue">Vue</span>
+              <span class="tag tag-ai">AI</span>
+              <span class="tag tag-iot">IoT</span>
+            </div>
+            <h3>AISerial</h3>
+            <p>Vue 驱动的 AI 串口工具项目。将 AI 能力与串口通信结合，探索硬件与人工智能的交叉领域。</p>
+            <a href="https://github.com/FengHanC/AISerial" target="_blank" rel="noopener" class="project-link">查看详情 →</a>
+          </div>
+        </article>
+
+        <!-- Ccpxy -->
+        <article class="project-card" data-tags="nodejs">
+          <div class="project-image">
+            <div class="project-placeholder node">
+              <span class="tech-icon">💚</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag tag-node">Node.js</span>
+            </div>
+            <h3>Ccpxy</h3>
+            <p>Node.js 后端项目。探索 JavaScript 运行时在服务端应用开发中的实践。</p>
+            <a href="https://github.com/FengHanC/Ccpxy" target="_blank" rel="noopener" class="project-link">查看详情 →</a>
+          </div>
+        </article>
+
+        <!-- threeDemo -->
+        <article class="project-card" data-tags="js,vue,3d">
+          <div class="project-image">
+            <div class="project-placeholder js">
+              <span class="tech-icon">🎆</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag tag-js">JavaScript</span>
+              <span class="tag tag-3d">Three.js</span>
+            </div>
+            <h3>threeDemo · 烟花</h3>
+            <p>基于 Three.js + Vue CLI 的烟花特效展示项目。在浏览器中实现绚丽的粒子烟花动画。</p>
+            <a href="https://github.com/FengHanC/threeDemo" target="_blank" rel="noopener" class="project-link">查看详情 →</a>
+          </div>
+        </article>
+
+        <!-- gzh-azy (微信云托管) -->
+        <article class="project-card" data-tags="php,laravel,wechat">
+          <div class="project-image">
+            <div class="project-placeholder php">
+              <span class="tech-icon">☁️</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag tag-php">PHP</span>
+              <span class="tag tag-laravel">Laravel</span>
+              <span class="tag tag-wechat">微信云</span>
+            </div>
+            <h3>gzh-azy</h3>
+            <p>微信云托管 Laravel 框架模版。集成云托管 MySQL，实现简单的计数器读写接口，快速上手的微信云开发模板。</p>
+            <a href="https://github.com/FengHanC/gzh-azy" target="_blank" rel="noopener" class="project-link">查看详情 →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====== 精选项目深度介绍 ====== -->
+    <section class="featured-section" id="featured">
+      <h2 class="section-title">精选项目</h2>
+
+      <!-- 精选 1: order-demo -->
+      <article class="featured-card">
+        <div class="featured-header">
+          <div class="featured-icon php">🐘</div>
+          <div>
+            <h3>order-demo — 接口幂等性最佳实践</h3>
+            <div class="featured-meta">
+              <span class="tag tag-php">PHP 8</span>
+              <span class="tag tag-api">ThinkPHP 8</span>
+              <span class="tag tag-hot">MySQL</span>
+            </div>
+          </div>
+        </div>
+        <div class="featured-body">
+          <h4>项目背景</h4>
+          <p>在电商系统中，订单接口的<strong>幂等性</strong>是核心难题之一。用户重复提交、网络重试等都可能导致重复下单。这个项目展示了如何通过 <code>request_id</code> + 数据库唯一索引双重保障来解决这个问题。</p>
+
+          <h4>技术亮点</h4>
+          <ul>
+            <li><strong>幂等键机制</strong> — 客户端传入 <code>request_id</code>，服务端去重</li>
+            <li><strong>唯一索引兜底</strong> — 数据库层面防止并发穿透</li>
+            <li><strong>库存扣减事务</strong> — 并发冲突时自动回滚，保证数据一致性</li>
+          </ul>
+
+          <h4>接口示例</h4>
+          <pre><code>POST /order/create
+{
+  "user_id": 1,
+  "product_id": 100,
+  "request_id": "uuid-xxx"
+}
+
+// 响应
+{
+  "code": 0,
+  "msg": "下单成功",
+  "order_no": "20240418120000123456"
+}</code></pre>
+
+          <a href="https://github.com/FengHanC/order-demo" target="_blank" rel="noopener" class="project-link">
+            📂 查看完整源码 →
+          </a>
+        </div>
+      </article>
+
+      <!-- 精选 2: AI-ImageStream -->
+      <article class="featured-card">
+        <div class="featured-header">
+          <div class="featured-icon vue">🖼️</div>
+          <div>
+            <h3>AI-ImageStream — AI 图片流应用</h3>
+            <div class="featured-meta">
+              <span class="tag tag-vue">Vue</span>
+              <span class="tag tag-ai">AI 集成</span>
+            </div>
+          </div>
+        </div>
+        <div class="featured-body">
+          <h4>项目背景</h4>
+          <p>AI 生成图片正在改变内容创作方式。这个项目探索如何用 Vue 构建一个流畅的 AI 图片浏览与管理界面。</p>
+
+          <h4>技术特点</h4>
+          <ul>
+            <li><strong>Vue 3 组件化</strong> — 可复用的图片展示组件</li>
+            <li><strong>流式加载</strong> — 优化大量图片的渲染性能</li>
+            <li><strong>美观 UI</strong> — 现代卡片式设计，响应式布局</li>
+          </ul>
+
+          <a href="https://github.com/FengHanC/AI-ImageStream" target="_blank" rel="noopener" class="project-link">
+            📂 查看完整源码 →
+          </a>
+        </div>
+      </article>
+
+      <!-- 精选 3: threeDemo 烟花 -->
+      <article class="featured-card">
+        <div class="featured-header">
+          <div class="featured-icon js">🎆</div>
+          <div>
+            <h3>threeDemo — 3D 烟花特效</h3>
+            <div class="featured-meta">
+              <span class="tag tag-js">JavaScript</span>
+              <span class="tag tag-vue">Vue CLI</span>
+              <span class="tag tag-3d">Three.js</span>
+            </div>
+          </div>
+        </div>
+        <div class="featured-body">
+          <h4>项目背景</h4>
+          <p>Three.js 是 Web 上最流行的 3D 库之一。这个项目用它来实现一个绚丽的烟花粒子系统，适合作为展示或节日彩蛋。</p>
+
+          <h4>技术亮点</h4>
+          <ul>
+            <li><strong>粒子系统</strong> — 数千个独立粒子的运动模拟</li>
+            <li><strong>Vue CLI 集成</strong> — 在 Vue 项目中使用 Three.js</li>
+            <li><strong>性能优化</strong> — 合理控制粒子数量，保持 60fps</li>
+          </ul>
+
+          <a href="https://github.com/FengHanC/threeDemo" target="_blank" rel="noopener" class="project-link">
+            📂 查看完整源码 →
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ====== 关于 ====== -->
+    <section class="about-section" id="about">
+      <h2 class="section-title">关于我</h2>
+      <div class="about-grid">
+        <div class="about-card main">
+          <div class="about-avatar">
+            <img src="/images/logo.jpg" alt="FengHanC" />
+          </div>
+          <h3>FengHanC</h3>
+          <p class="about-role">全栈开发者 / AI 应用探索</p>
+          <p>
+            8 年+ 编码经验，从 PHP 入门到 Vue、Node.js 全栈。
+            热爱捣鼓新技术，尤其是 AI 与前端/后端的结合应用。
+          </p>
+          <p>
+            工作之余喜欢把学到的东西做成开源项目，既能巩固知识，
+            也能帮助到其他人。这个站点就是我的代码游乐场 🎮
+          </p>
+        </div>
+
+        <div class="about-card skills">
+          <h3>🛠️ 技术栈</h3>
+          <div class="skill-group">
+            <h4>后端</h4>
+            <div class="skill-tags">
+              <span>PHP</span><span>ThinkPHP</span><span>Laravel</span><span>Node.js</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>前端</h4>
+            <div class="skill-tags">
+              <span>Vue</span><span>JavaScript</span><span>HTML/CSS</span><span>Three.js</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>数据库 &amp; 云</h4>
+            <div class="skill-tags">
+              <span>MySQL</span><span>微信云托管</span><span>Git</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>兴趣方向</h4>
+            <div class="skill-tags">
+              <span>AI 应用</span><span>接口设计</span><span>性能优化</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-card git-notes">
+          <h3>📝 Git 小抄</h3>
+          <div class="git-item">
+            <code>git stash</code>
+            <span>缓存修改，避免多人操作冲突</span>
+          </div>
+          <div class="git-item">
+            <code>git stash pop</code>
+            <span>取出缓存的修改并合并</span>
+          </div>
+          <div class="git-item">
+            <code>git stash list</code>
+            <span>查看所有 stash 记录</span>
+          </div>
+          <div class="git-item">
+            <code>git cherry-pick</code>
+            <span>挑选指定 commit 合并到当前分支</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== 联系 ====== -->
     <section class="contact-section" id="contact">
       <h2 class="section-title">联系我</h2>
       <div class="contact-card">
-        <p>如果你对项目感兴趣，欢迎通过以下方式联系：</p>
+        <p>如果你对项目感兴趣，或者想一起交流技术，随时找我！</p>
         <div class="contact-links">
-          <a href="https://github.com/FengHanC" target="_blank" rel="noopener">GitHub</a>
-          <a href="mailto:example@email.com">Email</a>
+          <a href="https://github.com/FengHanC" target="_blank" rel="noopener" class="contact-btn github">
+            <span class="contact-icon">&lt;/&gt;</span>
+            GitHub
+          </a>
+          <a href="https://fenghanc.github.io/" target="_blank" rel="noopener" class="contact-btn web">
+            <span class="contact-icon">🌐</span>
+            个人主页
+          </a>
+          <a href="mailto:fenghan.c@example.com" class="contact-btn email">
+            <span class="contact-icon">✉️</span>
+            发送邮件
+          </a>
         </div>
+        <p class="contact-footer">
+          或直接到 GitHub 提 Issue / PR，我看到就会回复 😄
+        </p>
       </div>
     </section>
 
     <!-- Footer -->
     <footer class="site-footer">
-      <p>&copy; 2018 — 2026 布局练习项目 | 现代重构版</p>
+      <p>© 2018 — 2026 FengHanC · 用 ❤️ 和 🦐 构建</p>
     </footer>
   </main>
 
